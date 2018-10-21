@@ -24,11 +24,17 @@
 			<th>Email </th>
 	</tr>
 	<c:forEach var ="tempStudent" items="${STUDENT_LIST }">
-	<tr>
-		<td> ${tempStudent.first_name}</td>
-		<td> ${tempStudent.last_name}</td>
-		<td> ${tempStudent.email}</td>
-	</tr>
+		<c:url var="EditLink" value= "EditStudentServlet">
+		<c:param name="studentId" value="${tempStudent.id}"/> 
+		</c:url>
+	
+	
+			<tr>
+				<td> ${tempStudent.first_name}</td>
+				<td> ${tempStudent.last_name}</td>
+				<td> ${tempStudent.email}</td>
+				<td> <a href="${EditLink }"> Edit</a></td>
+			</tr>
 	</c:forEach>
 	</table>
 </div>
