@@ -154,6 +154,27 @@ public class StudentDBUtil
 			}
 		}
 		
+		public void deleteStudent(int id) 
+		{ // TODO Auto-generated method stub 
+			Connection myConn=null; 
+			Statement myStmt = null; 
+			try 
+			{ 
+				myConn = dataSource.getConnection(); 
+				myStmt= myConn.createStatement(); 
+				String sql= "delete from student where id="+id; myStmt.execute(sql);
+			}
+			catch(Exception e)
+			{ 
+				System.out.println(e.getMessage());
+			}
+			finally
+			{ 
+				close(myConn,myStmt,null); 
+			}
+		}
+		
+		
 }
 
 
